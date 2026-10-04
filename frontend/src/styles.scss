@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: #4f46e5;
+  --color-accent-dark: #4338ca;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-danger: #dc2626;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1b1f23;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Visible keyboard focus, kept consistent across the app
+:focus-visible {
+  outline: 2px solid #0f6b63;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

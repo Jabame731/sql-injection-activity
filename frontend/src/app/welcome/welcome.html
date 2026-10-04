@@ -1,0 +1,36 @@
+<div class="min-h-screen flex flex-col">
+  <header class="flex items-center justify-between px-6 py-4 border-b border-border">
+    <span class="font-display text-lg text-ink">Crew</span>
+    <button
+      type="button"
+      (click)="logout()"
+      class="text-sm text-muted hover:text-ink transition-colors"
+    >
+      Log out
+    </button>
+  </header>
+
+  <main class="flex-1 flex items-center justify-center px-4">
+    <div class="text-center max-w-md welcome-enter">
+      <p class="text-sm text-muted mb-2">
+        {{ isAdmin ? 'Administrator access' : 'Team member access' }}
+      </p>
+      <h1 class="font-display text-4xl text-ink mb-3">
+        Welcome, {{ isAdmin ? 'Admin' : auth.currentUser()?.name || 'User' }}
+      </h1>
+      <p class="text-muted mb-8">
+        @if (isAdmin) {
+          You have full access to the team directory and member details.
+        } @else {
+          You're signed in. Here's your team directory.
+        }
+      </p>
+      <a
+        routerLink="/users"
+        class="inline-block rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
+      >
+        View team directory
+      </a>
+    </div>
+  </main>
+</div>

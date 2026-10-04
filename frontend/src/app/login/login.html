@@ -1,0 +1,57 @@
+<div class="min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-sm">
+    <div class="mb-8 text-center">
+      <span class="font-display text-2xl text-ink">VIT Fashion</span>
+      <p class="mt-1 text-sm text-muted">Sign in to your team directory</p>
+    </div>
+
+    <form
+      class="login-card bg-surface border border-border rounded-xl p-8"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+      @if (errorMessage()) {
+        <div
+          class="mb-5 rounded-md border border-danger/30 bg-danger/5 px-3 py-2 text-sm text-danger"
+          role="alert"
+        >
+          {{ errorMessage() }}
+        </div>
+      }
+
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-ink mb-1.5"> Username </label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          autocomplete="username"
+          [(ngModel)]="username"
+          class="w-full rounded-md border border-border px-3 py-2 text-sm text-ink placeholder:text-muted/70 focus:border-accent"
+          placeholder="jane.doe"
+        />
+      </div>
+
+      <div class="mb-6">
+        <label for="password" class="block text-sm font-medium text-ink mb-1.5"> Password </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          [(ngModel)]="password"
+          class="w-full rounded-md border border-border px-3 py-2 text-sm text-ink placeholder:text-muted/70 focus:border-accent"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="loading()"
+        class="w-full rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-dark disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {{ loading() ? 'Signing in…' : 'Sign in' }}
+      </button>
+    </form>
+  </div>
+</div>
